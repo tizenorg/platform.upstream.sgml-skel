@@ -1,0 +1,54 @@
+2002-11-25  Karl Eichwalder  <ke@gnu.franken.de>
+
+	* Release 0.6.
+
+	* sgml-register-catalog.in: Don't deal with so called
+	"centralized" catalogs; add all catalogs to /etc/sgml/catalog.
+
+	* sgml-register-catalog.in: New file (AKA install-catalog in
+	docbook-tools CVS).
+
+	* configure.ac: Require automake 1.7.1 and autoconf 2.56; change
+	AC_INIT and AM_INIT_AUTOMAKE accordingly.
+	* Makefile.am (AUTOMAKE_OPTIONS): Likewise; obsoleted by
+	AM_INIT_AUTOMAKE.
+
+	* configure.ac: Set version to 0.6.
+
+2002-05-26  Karl Eichwalder  <ke@gnu.franken.de>
+
+	* Release 0.5.
+
+	* sgml2xmlcat.sh.in: Fix quoting and regex for catalog entry
+	parsing.
+
+	* sgml2xmlcat.sh.in: Completely rewritten: use getopt, provide an
+	interface to install-dtd.sh.
+
+2002-05-25  Karl Eichwalder  <ke@gnu.franken.de>
+
+	* configure.ac: Check for xmlcatalog.
+
+	* Makefile.am (bin_SCRIPTS): Add sparse-sgml-catalog.sh.
+	* configure.ac: Likewise.
+	* sgml2xmlcat.sh.in: New file.
+
+	* Makefile.am (bin_SCRIPTS): Add parse-sgml-catalog.sh.
+	* configure.ac: Likewise.
+	* parse-sgml-catalog.sh.in: New file.
+
+	* install-dtd.sh.in (version, package): Expand automatically.
+
+	* configure.ac: 0.5
+
+	* configure.ac: Generate install-dtd.sh.
+
+	* install-dtd.sh: Delete.
+	* install-dtd.sh.in: Renamed from install-dtd.sh.
+
+2001-08-26  Karl Eichwalder  <ke@suse.de>
+
+	* Release 0.2.
+
+	* install-dtd.sh (id_split): Also handle language and version.
+

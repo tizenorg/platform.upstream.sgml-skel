@@ -1,0 +1,16 @@
+0.6
+. add sgml-register-catalog - Add catalog statement to the so called
+  supercatalog (SGML Open Catalog format).
+
+0.5
+. parse-sgml-catalog.sh - Print normalized SGML catalog files.
+. sgml2xmlcat.sh - Convert a normalized SGML catalog to an XML catalog.
+
+0.2
+. install-dtd.sh:
+  - Recognize ISO identifiers.
+  - Handle language and version.
+  - Error checking.
+
+0.1
+. install-dtd.sh: Bash script to parse PUBLIC identifiers.
