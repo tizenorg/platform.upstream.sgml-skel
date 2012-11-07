@@ -1,0 +1,23 @@
+--- sgml-skel-0.6/sgml-register-catalog.in	2002-11-25 09:42:46.000000000 +0100
++++ sgml-skel-0.6/sgml-register-catalog.in	2002-11-25 13:02:47.000000000 +0100
+@@ -126,13 +126,12 @@
+     # else
+     #   echo "Warning: $SGML_ORDINARY was not found in the centralized catalog $SGML_CENTRALIZED" >&2
+     # fi
+-    if [ ! -s $SGML_ORDINARY ]; then
++    # set -x
+       # rm $SGML_ORDINARY
+-      echo "`basename $0`: removal of $SGML_ORDINARY from /etc/sgml/catalog"
+-      sed -e "\:$SGML_POINTER \"\?$SGML_ORDINARY\"\?\>:d" /etc/sgml/catalog \
+-	> /etc/sgml/catalog.new
+-      mv /etc/sgml/catalog.new /etc/sgml/catalog
+-    fi
++    echo "`basename $0`: removal of $SGML_ORDINARY from /etc/sgml/catalog"
++    sed -e "\:$SGML_POINTER \+\"\?$SGML_ORDINARY\"\?\>:d" /etc/sgml/catalog \
++      > /etc/sgml/catalog.new
++    mv /etc/sgml/catalog.new /etc/sgml/catalog
+     ;;
+ esac
+ 
+
+Diff finished at Mon Nov 25 13:20:03

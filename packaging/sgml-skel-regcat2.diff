@@ -1,0 +1,22 @@
+--- sgml-skel-0.6/sgml-register-catalog.in.~1~	2002-11-28 16:30:54.000000000 +0100
++++ sgml-skel-0.6/sgml-register-catalog.in	2002-11-28 16:41:59.000000000 +0100
+@@ -111,7 +111,7 @@
+     # else
+     #   echo "$SGML_POINTER $SGML_ORDINARY" >> $SGML_CENTRALIZED
+     # fi
+-    grep -q -e "\<$SGML_ORDINARY\>" /etc/sgml/catalog 2>/dev/null
++    grep -q -e "$SGML_ORDINARY\"\?[ 	]*$" /etc/sgml/catalog 2>/dev/null
+     if [ $? -ne 0 ]; then
+       echo "`basename $0`: addition of $SGML_ORDINARY in /etc/sgml/catalog"
+       echo "$SGML_POINTER \"$SGML_ORDINARY\"" >> /etc/sgml/catalog
+@@ -129,7 +129,7 @@
+     # set -x
+       # rm $SGML_ORDINARY
+     echo "`basename $0`: removal of $SGML_ORDINARY from /etc/sgml/catalog"
+-    sed -e "\:$SGML_POINTER \+\"\?$SGML_ORDINARY\"\?\>:d" /etc/sgml/catalog \
++    sed -e "\:$SGML_POINTER \+\"\?$SGML_ORDINARY\"\?[ 	]*$:d" /etc/sgml/catalog \
+       > /etc/sgml/catalog.new
+     mv /etc/sgml/catalog.new /etc/sgml/catalog
+     ;;
+
+Diff finished at Thu Nov 28 16:42:05
