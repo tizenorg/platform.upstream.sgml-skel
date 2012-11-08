@@ -31,7 +31,6 @@ These scripts will help prepare and maintain parts of an SGML system.
 %setup -q
 cp %{SOURCE1} .
 cp %{SOURCE2} .
-%patch2 -p 0
 
 %build
 # CFLAGS="%{optflags}"
