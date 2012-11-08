@@ -111,7 +111,7 @@ case $SGML_ACTION in
     # else
     #   echo "$SGML_POINTER $SGML_ORDINARY" >> $SGML_CENTRALIZED
     # fi
-    grep -q -e "\<$SGML_ORDINARY\>" /etc/sgml/catalog 2>/dev/null
+    grep -q -e "$SGML_ORDINARY\"\?[ 	]*$" /etc/sgml/catalog 2>/dev/null
     if [ $? -ne 0 ]; then
       echo "`basename $0`: addition of $SGML_ORDINARY in /etc/sgml/catalog"
       echo "$SGML_POINTER \"$SGML_ORDINARY\"" >> /etc/sgml/catalog
@@ -126,13 +126,12 @@ case $SGML_ACTION in
     # else
     #   echo "Warning: $SGML_ORDINARY was not found in the centralized catalog $SGML_CENTRALIZED" >&2
     # fi
-    if [ ! -s $SGML_ORDINARY ]; then
+    # set -x
       # rm $SGML_ORDINARY
-      echo "`basename $0`: removal of $SGML_ORDINARY from /etc/sgml/catalog"
-      sed -e "\:$SGML_POINTER \"\?$SGML_ORDINARY\"\?\>:d" /etc/sgml/catalog \
-	> /etc/sgml/catalog.new
-      mv /etc/sgml/catalog.new /etc/sgml/catalog
-    fi
+    echo "`basename $0`: removal of $SGML_ORDINARY from /etc/sgml/catalog"
+    sed -e "\:$SGML_POINTER \+\"\?$SGML_ORDINARY\"\?[ 	]*$:d" /etc/sgml/catalog \
+      > /etc/sgml/catalog.new
+    mv /etc/sgml/catalog.new /etc/sgml/catalog
     ;;
 esac
 
