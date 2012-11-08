@@ -9,9 +9,6 @@ Source0:        http://www.suse.de/~ke/%{name}/%{name}-%{version}.tar.bz2
 # :pserver:anoncvs@sources.redhat.com:/cvs/docbook-tools
 Source1:        docbook-tools/sgml-common/bin/install-catalog.in
 Source2:        edit-xml-catalog.sh
-Patch0:         sgml-skel-regcat.diff
-Patch1:         sgml-skel-regcat2.diff
-Patch2:         sgml-skel-edit-cat.diff
 BuildRequires:  automake
 BuildRequires:  libxml2-tools
 Requires(pre):  /bin/awk
@@ -32,9 +29,6 @@ These scripts will help prepare and maintain parts of an SGML system.
 
 %prep
 %setup -q
-%patch0 -p 1
-%patch1 -p 1
-# # cp -p $RPM_SOURCE_DIR/%{name}-README.SuSE .
 cp %{SOURCE1} .
 cp %{SOURCE2} .
 %patch2 -p 0
