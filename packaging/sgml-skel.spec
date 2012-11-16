@@ -11,11 +11,10 @@ Source1:        docbook-tools/sgml-common/bin/install-catalog.in
 Source2:        edit-xml-catalog.sh
 BuildRequires:  automake
 BuildRequires:  libxml2-tools
-Requires(pre):  /bin/awk
-Requires(pre):  /bin/chmod
-Requires(pre):  /bin/mv
+Requires(pre):  /usr/bin/awk
+Requires(pre):  /usr/bin/chmod
+Requires(pre):  /usr/bin/mv
 Requires:       libxml2-tools
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 
 %description
