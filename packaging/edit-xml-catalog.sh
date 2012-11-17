@@ -77,8 +77,8 @@ s == 1 {print}
 /<catalog/{s=1}
 END{print "</catalog>"}'
   } >$ROOTCATALOG.tmp
-  if [ -x /bin/chmod ]; then
-    /bin/chmod --reference=$ROOTCATALOG $ROOTCATALOG.tmp
+  if [ -x /usr/bin/chmod ]; then
+    /usr/bin/chmod --reference=$ROOTCATALOG $ROOTCATALOG.tmp
   fi
   $xmllint --nocatalogs --noout $ROOTCATALOG.tmp \
     && mv $ROOTCATALOG.tmp $ROOTCATALOG
@@ -105,8 +105,8 @@ s == 1 {next}
 /<!-- pac_start: $pattern do not remove! -->/{s=1;next}
 {print}" > $ROOTCATALOG.tmp
     fi
-    if [ -x /bin/chmod ]; then
-      /bin/chmod --reference=$ROOTCATALOG $ROOTCATALOG.tmp
+    if [ -x /usr/bin/chmod ]; then
+      /usr/bin/chmod --reference=$ROOTCATALOG $ROOTCATALOG.tmp
     fi
     $xmllint --nocatalogs --noout $ROOTCATALOG.tmp \
       && mv $ROOTCATALOG.tmp $ROOTCATALOG
