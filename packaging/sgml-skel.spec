@@ -9,6 +9,7 @@ Source0:        http://www.suse.de/~ke/%{name}/%{name}-%{version}.tar.bz2
 # :pserver:anoncvs@sources.redhat.com:/cvs/docbook-tools
 Source1:        docbook-tools/sgml-common/bin/install-catalog.in
 Source2:        edit-xml-catalog.sh
+Source1001: 	sgml-skel.manifest
 BuildRequires:  automake
 BuildRequires:  libxml2-tools
 Requires(pre):  /usr/bin/awk
@@ -28,6 +29,7 @@ These scripts will help prepare and maintain parts of an SGML system.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 cp %{SOURCE1} .
 cp %{SOURCE2} .
 
@@ -55,6 +57,7 @@ xmlcatalog --noout --add  "nextCatalog" "tizen-catalog.xml" "tizen-catalog.xml" 
   %{buildroot}%{_sysconfdir}/xml/catalog
 
 %files
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %doc AUTHORS COPYING NEWS README*
 %ghost %{_sysconfdir}/sgml/catalog
